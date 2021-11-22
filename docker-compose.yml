@@ -1,0 +1,25 @@
+version: "3.4"
+
+services:
+  nodejs:
+    container_name: nodejs
+    build:
+      context:  ./nodejs-javascript/
+      target: debug
+    volumes:
+    - ./nodejs-javascript/src/:/work/src/
+    ports:
+      - 9999:5000 
+      - 9229:9229
+
+  nodets:
+    container_name: nodets
+    build:
+      context:  ./nodejs-typescript/
+      target: debug
+    volumes:
+    - ./nodejs-typescript/src/:/work/src/
+    ports:
+      - 9999:5000 
+      - 9229:9229
+
